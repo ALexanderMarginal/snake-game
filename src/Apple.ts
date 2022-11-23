@@ -7,7 +7,6 @@ export class Apple {
   private readonly ctx: CanvasRenderingContext2D;
   private readonly step: number;
   private readonly snake: Snake;
-
   private coordinate: Coordinate | undefined;
 
   constructor(ctx: CanvasRenderingContext2D, step: number, snake: Snake) {
