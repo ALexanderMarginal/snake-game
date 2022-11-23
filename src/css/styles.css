@@ -1,2 +1,23 @@
 /* Import all base styles. */
 @import url('./all/all.css');
+
+.root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.root canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.root .score {
+  position: absolute;
+  top: 25%;
+  left: 75%;
+}
