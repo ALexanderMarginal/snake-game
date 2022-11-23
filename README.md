@@ -6,66 +6,6 @@
 - Defeat conditions
 - Fail screen
 
-
-----
-
-
-# Typescript Webpack Boilerplate
-
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/VD39/es6-webpack-boilerplate/blob/master/LICENSE, 'License')
-
-A starter frontend boilerplate built with:
-
-- [TypeScript](https://www.typescriptlang.org/)
-- [Babel (7)](https://babeljs.io/)
-- [Webpack (5)](https://webpack.js.org/)
-- [PostCSS](https://postcss.org/)
-- [Jest](https://jestjs.io/)
-- [ESLint](https://eslint.org/)
-- [Stylelint](https://stylelint.io/)
-
-This also uses [lint-staged](https://github.com/okonet/lint-staged) for running pre-commit checks.
-
-## Features
-
-- Support for both TypeScript and JavaScript as needed.
-- May be extended to be used with [React](https://reactjs.org/), [Vue.js](https://vuejs.org/), or [Angular](https://angular.io/).
-- Minification of TypeScript/JavaScript and CSS processed files.
-- Assets optimization.
-- Webpack Dev Server plugin for local development.
-- Webpack Bundle Analyzer for visualising script output and usage.
-
-## Prerequisites
-
-- [NodeJS](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com)
-
-## Folder structure
-
-```none
-src
-└── css
-│    ├── all
-│    └── styles.css
-├── index.ts
-public
-├── assets
-├── favicon.ico
-└── index.html
-```
-
-- src
-  - The entry typescript file is [index.ts](src/index.ts).
-  - The [helpers/set-message](src/helpers/set-message) folder is a sample folder for how to test using Jest.
-  - Local files are imported using the `'@'` alias. See [index.ts](src/index.ts) file for example.
-- scr/css
-  - Add your styles here and `@import` them to the entry [styles.css](src/css/styles.css) file.
-- public
-  - Edit the [index.html](public/index.html) in the public folder to suite your needs.
-  - Replace the [favicon.ico](public/favicon.ico) with your own icon.
-- public/assets.
-  - Add your assets, to the [assets](public/assets) folder.
-
 ## Configuration
 
 You may change the configuration for Webpack within the [webpack](webpack) folder.
@@ -181,7 +121,8 @@ Run:
 ```
 
 This will create a server at `http://localhost:8888/` or at the port number specified using the `-p or --port` option via the `cli`.
-
+<!--
 ## License
 
 [MIT](https://github.com/VD39/es6-webpack-boilerplate/blob/master/LICENSE)
+-->
