@@ -31,6 +31,9 @@ const devServer = {
 const WebpackConfig = {
   devServer,
   devtool: 'cheap-module-source-map',
+  output: {
+    publicPath: '/',
+  },
 };
 
 // Export configuration.

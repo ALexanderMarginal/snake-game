@@ -59,7 +59,7 @@ export class App {
   private setSnakeLength() {
     if (this.score) {
       if (this.scoreCount && this.scoreCount !== this.snake?.coords.length) {
-        this.speed = this.speed * 0.99;
+        this.speed = this.speed * 0.95;
       }
       this.scoreCount = this.snake?.coords.length;
       this.score.innerHTML = this.scoreCount
