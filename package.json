@@ -1,6 +1,7 @@
 {
   "name": "typescript-webpack-boilerplate",
   "title": "Typescript Webpack Boilerplate",
+  "homepage": "https://alexandermarginal.github.io/snake-game/",
   "description": "A starter template/boilerplate built with TypeScript/JavaScript, Babel, Webpack 5, PostCSS, Jest, ESLint, and Stylelint.",
   "main": "",
   "url": "URL",
@@ -18,6 +19,8 @@
     "url": "https://github.com/VD39/typescript-webpack-boilerplate/issues"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "build": "webpack --progress --config webpack.config.babel.js",
     "check-types": "tsc --project tsconfig.json --noEmit",
     "dev": "yarn serve",
@@ -109,5 +112,8 @@
     "> 5%",
     "not dead",
     "not IE < 11"
-  ]
+  ],
+  "dependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
