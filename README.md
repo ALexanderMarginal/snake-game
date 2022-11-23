@@ -1,5 +1,12 @@
 # Snake game
 
+## TODO
+- Menu
+- Settings
+- Defeat conditions
+- Fail screen
+
+
 ----
 
 
