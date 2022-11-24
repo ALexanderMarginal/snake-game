@@ -23,34 +23,18 @@ export class App {
   private speed = 500;
 
   constructor() {
-    const canvas = document.createElement('canvas');
-    canvas.width = this.size;
-    canvas.height = this.size;
-
-    const root = document.getElementById('root');
-
-    if (root) {
-      root.appendChild(canvas);
-    }
-
-    const ctx = canvas.getContext('2d');
-
     this.startHandler = this.startHandler.bind(this);
     this.keyboardHandler = this.keyboardHandler.bind(this);
     this.restart = this.restart.bind(this);
 
-    if (ctx) {
-      this.ctx = ctx;
+    this.board = new Board();
+    this.snake = new Snake();
+    this.apple = new Apple(this.snake);
 
-      this.snake = new Snake(this.ctx, this.step);
-      this.apple = new Apple(this.ctx, this.step, this.snake);
-      this.board = new Board(this.ctx, this.size, this.step);
+    this.apple.make();
+    this.render();
 
-      this.apple.make();
-      this.render();
-
-      this.initHandlers();
-    }
+    this.initHandlers();
   }
 
   private checkKeyboardEvent(e: KeyboardEvent): boolean {

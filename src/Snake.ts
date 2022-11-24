@@ -1,4 +1,5 @@
 import { Apple } from '@/Apple';
+import { Canvas } from '@/Canvas';
 import { SIZE } from '@/constants';
 import { Colors, Controls, Coordinate } from '@/types';
 
@@ -6,11 +7,6 @@ const BASE_COORDINATES: Coordinate[] = [{ x: SIZE / 2 - 1, y: SIZE / 2 - 1 }];
 
 export class Snake {
   private coordinates: Coordinate[] = BASE_COORDINATES;
-
-  constructor(
-    private readonly ctx: CanvasRenderingContext2D,
-    private readonly step: number,
-  ) {}
 
   public reset(): void {
     this.coordinates = BASE_COORDINATES;
@@ -21,13 +17,13 @@ export class Snake {
   }
 
   public render(): void {
-    this.ctx.fillStyle = Colors.Snake;
+    Canvas.ctx.fillStyle = Colors.Snake;
     for (const coordinate of this.coordinates) {
-      this.ctx.fillRect(
-        coordinate.x * this.step,
-        coordinate.y * this.step,
-        this.step,
-        this.step,
+      Canvas.ctx.fillRect(
+        coordinate.x * Canvas.step,
+        coordinate.y * Canvas.step,
+        Canvas.step,
+        Canvas.step,
       );
     }
   }

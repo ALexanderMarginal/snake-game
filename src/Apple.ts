@@ -1,3 +1,4 @@
+import { Canvas } from '@/Canvas';
 import { SIZE } from '@/constants';
 import { getRandomInteger } from '@/helpers/getRandomInteger';
 import { Snake } from '@/Snake';
@@ -6,11 +7,7 @@ import { Colors, Coordinate } from '@/types';
 export class Apple {
   private coordinate: Coordinate | undefined;
 
-  constructor(
-    private readonly ctx: CanvasRenderingContext2D,
-    private readonly step: number,
-    private readonly snake: Snake,
-  ) {}
+  constructor(private readonly snake: Snake) {}
 
   public checkCollision(coordinates: Coordinate[]): boolean {
     for (const coordinate of coordinates) {
@@ -44,12 +41,12 @@ export class Apple {
 
   public render(): void {
     if (this.coordinate) {
-      this.ctx.fillStyle = Colors.Apple;
-      this.ctx.fillRect(
-        this.coordinate.x * this.step,
-        this.coordinate.y * this.step,
-        this.step,
-        this.step,
+      Canvas.ctx.fillStyle = Colors.Apple;
+      Canvas.ctx.fillRect(
+        this.coordinate.x * Canvas.step,
+        this.coordinate.y * Canvas.step,
+        Canvas.step,
+        Canvas.step,
       );
     }
   }
