@@ -5,10 +5,6 @@
 - Settings
 - Mobile controls
 
-## Configuration
-
-You may change the configuration for Webpack within the [webpack](webpack) folder.
-
 ## Setup
 
 ### Install dependencies
