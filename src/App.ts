@@ -48,10 +48,10 @@ export class App {
 
   private setSnakeLength() {
     if (this.score) {
-      if (this.scoreCount && this.scoreCount !== this.snake?.coords.length) {
+      if (this.scoreCount !== this.snake?.coords.length) {
         this.speed = this.speed * 0.95;
         if (this.snake) {
-          this.scoreCount = this.snake?.coords.length;
+          this.scoreCount = this.snake.coords.length;
           this.score.innerHTML = this.scoreCount
             ? `Длина змеи ${this.scoreCount}`
             : '';
