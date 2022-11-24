@@ -3,8 +3,7 @@
 ## TODO
 - Menu
 - Settings
-- Defeat conditions
-- Fail screen
+- Mobile controls
 
 ## Configuration
 
@@ -121,8 +120,7 @@ Run:
 ```
 
 This will create a server at `http://localhost:8888/` or at the port number specified using the `-p or --port` option via the `cli`.
-<!--
-## License
 
-[MIT](https://github.com/VD39/es6-webpack-boilerplate/blob/master/LICENSE)
--->
+<!-- ## License -->
+
+<!-- [MIT](https://github.com/VD39/es6-webpack-boilerplate/blob/master/LICENSE) -->

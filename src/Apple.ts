@@ -4,16 +4,13 @@ import { Snake } from '@/Snake';
 import { Colors, Coordinate } from '@/types';
 
 export class Apple {
-  private readonly ctx: CanvasRenderingContext2D;
-  private readonly step: number;
-  private readonly snake: Snake;
   private coordinate: Coordinate | undefined;
 
-  constructor(ctx: CanvasRenderingContext2D, step: number, snake: Snake) {
-    this.ctx = ctx;
-    this.step = step;
-    this.snake = snake;
-  }
+  constructor(
+    private readonly ctx: CanvasRenderingContext2D,
+    private readonly step: number,
+    private readonly snake: Snake,
+  ) {}
 
   public checkCollision(coordinates: Coordinate[]): boolean {
     for (const coordinate of coordinates) {

@@ -16,8 +16,36 @@
   transform: translate3d(-50%, -50%, 0);
 }
 
-.root .score {
+.score {
   position: absolute;
   top: 25%;
   left: 75%;
+}
+
+.fail {
+  position: fixed;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: red;
+  background: rgb(0 0 0 / 80%);
+  opacity: 0;
+  transition: opacity linear 0.1s;
+}
+
+.fail-title {
+  font-size: 3rem;
+}
+
+.fail-description {
+  font-size: 2rem;
+}
+
+.fail.active {
+  z-index: 1;
+  opacity: 1;
 }

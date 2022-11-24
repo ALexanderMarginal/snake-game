@@ -11,7 +11,16 @@ export enum Controls {
   ArrowDown = 'ArrowDown',
   ArrowLeft = 'ArrowLeft',
   ArrowRight = 'ArrowRight',
+  Space = ' ',
 }
+
+export const CONTROL_CONFLICTS: Record<Controls, Controls> = {
+  [Controls.ArrowUp]: Controls.ArrowDown,
+  [Controls.ArrowLeft]: Controls.ArrowRight,
+  [Controls.ArrowRight]: Controls.ArrowLeft,
+  [Controls.ArrowDown]: Controls.ArrowUp,
+  [Controls.Space]: Controls.Space,
+} as const;
 
 export type Coordinate = {
   x: number;

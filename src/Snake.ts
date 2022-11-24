@@ -2,15 +2,18 @@ import { Apple } from '@/Apple';
 import { SIZE } from '@/constants';
 import { Colors, Controls, Coordinate } from '@/types';
 
+const BASE_COORDINATES: Coordinate[] = [{ x: SIZE / 2 - 1, y: SIZE / 2 - 1 }];
+
 export class Snake {
-  private readonly ctx: CanvasRenderingContext2D;
-  private readonly step: number;
+  private coordinates: Coordinate[] = BASE_COORDINATES;
 
-  private coordinates: Coordinate[] = [{ x: SIZE / 2 - 1, y: SIZE / 2 - 1 }];
+  constructor(
+    private readonly ctx: CanvasRenderingContext2D,
+    private readonly step: number,
+  ) {}
 
-  constructor(ctx: CanvasRenderingContext2D, step: number) {
-    this.ctx = ctx;
-    this.step = step;
+  public reset(): void {
+    this.coordinates = BASE_COORDINATES;
   }
 
   public get coords(): Coordinate[] {
@@ -62,5 +65,16 @@ export class Snake {
           { x: head.x, y: head.y ? head.y - 1 : SIZE - 1 },
         ];
     }
+  }
+
+  public checkCollision(): boolean {
+    const head = this.coordinates[this.coordinates.length - 1];
+    for (let i = 0; i < this.coordinates.length - 1; i++) {
+      const coordinate: Coordinate = this.coordinates[i];
+      if (head.x === coordinate.x && head.y === coordinate.y) {
+        return true;
+      }
+    }
+    return false;
   }
 }
