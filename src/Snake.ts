@@ -1,15 +1,20 @@
 import { Apple } from '@/Apple';
 import { Canvas } from '@/Canvas';
-import { SIZE } from '@/constants';
 import { Colors, Controls, Coordinate } from '@/types';
 
-const BASE_COORDINATES: Coordinate[] = [{ x: SIZE / 2 - 1, y: SIZE / 2 - 1 }];
-
 export class Snake {
-  private coordinates: Coordinate[] = BASE_COORDINATES;
+  private coordinates: Coordinate[] = [];
 
-  public reset(): void {
-    this.coordinates = BASE_COORDINATES;
+  constructor(
+    private readonly canvas: Canvas,
+    private readonly boardSize: number,
+  ) {
+    this.setInitialCoordinate();
+  }
+
+  public setInitialCoordinate(): void {
+    const center = Math.floor(this.boardSize / 2) - 1;
+    this.coordinates = [{ x: center, y: center }];
   }
 
   public get coords(): Coordinate[] {
@@ -17,13 +22,13 @@ export class Snake {
   }
 
   public render(): void {
-    Canvas.ctx.fillStyle = Colors.Snake;
+    this.canvas.ctx.fillStyle = Colors.Snake;
     for (const coordinate of this.coordinates) {
-      Canvas.ctx.fillRect(
-        coordinate.x * Canvas.step,
-        coordinate.y * Canvas.step,
-        Canvas.step,
-        Canvas.step,
+      this.canvas.ctx.fillRect(
+        coordinate.x * this.canvas.step,
+        coordinate.y * this.canvas.step,
+        this.canvas.step,
+        this.canvas.step,
       );
     }
   }
@@ -39,26 +44,26 @@ export class Snake {
       case Controls.ArrowRight:
         this.coordinates = [
           ...body,
-          { x: head.x + 1 >= SIZE ? 0 : head.x + 1, y: head.y },
+          { x: head.x + 1 >= this.canvas.size ? 0 : head.x + 1, y: head.y },
         ];
         break;
       case Controls.ArrowDown:
         this.coordinates = [
           ...body,
-          { x: head.x, y: head.y + 1 >= SIZE ? 0 : head.y + 1 },
+          { x: head.x, y: head.y + 1 >= this.canvas.size ? 0 : head.y + 1 },
         ];
         break;
       case Controls.ArrowLeft:
         this.coordinates = [
           ...body,
-          { x: head.x ? head.x - 1 : SIZE - 1, y: head.y },
+          { x: head.x ? head.x - 1 : this.canvas.size - 1, y: head.y },
         ];
         break;
       case Controls.ArrowUp:
       default:
         this.coordinates = [
           ...body,
-          { x: head.x, y: head.y ? head.y - 1 : SIZE - 1 },
+          { x: head.x, y: head.y ? head.y - 1 : this.canvas.size - 1 },
         ];
     }
   }

@@ -24,13 +24,15 @@
 
 .fail {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   color: red;
   background: rgb(0 0 0 / 80%);
   opacity: 0;
@@ -48,4 +50,56 @@
 .fail.active {
   z-index: 1;
   opacity: 1;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  transition: opacity linear 0.1s;
+}
+
+.menu.disabled {
+  z-index: -1;
+  opacity: 0;
+}
+
+.menu-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  max-width: 90%;
+}
+
+.menu-form > * {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.menu button {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.menu-form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-form input {
+  padding: 0.5rem;
+}
+
+.menu-form label input {
+  margin-top: 0.25rem;
 }

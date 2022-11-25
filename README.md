@@ -1,9 +1,8 @@
 # Snake game
 
 ## TODO
-- Menu
-- Settings
 - Mobile controls
+- Sound
 
 ## Setup
 

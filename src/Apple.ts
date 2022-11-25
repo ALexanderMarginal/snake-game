@@ -1,5 +1,4 @@
 import { Canvas } from '@/Canvas';
-import { SIZE } from '@/constants';
 import { getRandomInteger } from '@/helpers/getRandomInteger';
 import { Snake } from '@/Snake';
 import { Colors, Coordinate } from '@/types';
@@ -7,7 +6,7 @@ import { Colors, Coordinate } from '@/types';
 export class Apple {
   private coordinate: Coordinate | undefined;
 
-  constructor(private readonly snake: Snake) {}
+  constructor(private readonly canvas: Canvas, private readonly snake: Snake) {}
 
   public checkCollision(coordinates: Coordinate[]): boolean {
     for (const coordinate of coordinates) {
@@ -25,8 +24,8 @@ export class Apple {
     let uniqueApple: Coordinate | undefined = undefined;
     while (!uniqueApple) {
       const apple = {
-        x: getRandomInteger(0, SIZE - 1),
-        y: getRandomInteger(0, SIZE - 1),
+        x: getRandomInteger(0, this.canvas.size - 1),
+        y: getRandomInteger(0, this.canvas.size - 1),
       };
 
       for (const coordinate of this.snake.coords) {
@@ -41,12 +40,12 @@ export class Apple {
 
   public render(): void {
     if (this.coordinate) {
-      Canvas.ctx.fillStyle = Colors.Apple;
-      Canvas.ctx.fillRect(
-        this.coordinate.x * Canvas.step,
-        this.coordinate.y * Canvas.step,
-        Canvas.step,
-        Canvas.step,
+      this.canvas.ctx.fillStyle = Colors.Apple;
+      this.canvas.ctx.fillRect(
+        this.coordinate.x * this.canvas.step,
+        this.coordinate.y * this.canvas.step,
+        this.canvas.step,
+        this.canvas.step,
       );
     }
   }

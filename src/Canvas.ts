@@ -1,5 +1,3 @@
-import { SIZE } from '@/constants';
-
 const CANVAS_SIZE = document.body.offsetWidth / 3;
 
 const makeCanvasContext = (): CanvasRenderingContext2D => {
@@ -17,7 +15,14 @@ const makeCanvasContext = (): CanvasRenderingContext2D => {
 };
 
 export class Canvas {
-  public static readonly size = CANVAS_SIZE;
-  public static readonly step = CANVAS_SIZE / SIZE;
-  public static readonly ctx = makeCanvasContext();
+  public step = 0;
+
+  constructor(public size: number) {
+    this.step = CANVAS_SIZE / this.size;
+  }
+  public readonly ctx = makeCanvasContext();
+
+  public get fullSize(): number {
+    return this.size * this.step;
+  }
 }

@@ -24,6 +24,23 @@
     <!-- Root -->
     <div id="root" class="root">
       <div class="score" id="score"></div>
+      <div id="menu" class="menu">
+        <form class="menu-form">
+          <button type="submit">Start</button>
+          <label>
+            Base speed
+            <input name="baseSpeed" value="500" type="number" min="100" max="1000" step="100"/>
+          </label>
+          <label>
+            Speed rate
+            <input name="speedRate" value="0.05" type="number" min="0.00" max="1" step="0.05"/>
+          </label>
+          <label>
+            Field size
+            <input name="boardSize" value="10" type="number" min="10" max="100" step="1"/>
+          </label>
+        </form>
+      </div>
       <div id="fail" class="fail">
         <div class="fail-title">You lost</div>
         <div class="fail-description">Press "space" to restart</div>
